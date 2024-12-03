@@ -20,10 +20,9 @@ Route::get('/dashboard', function () {
 
 Route::get('/profile', function () {
     return Inertia::render('Profile/Show');
-})->middleware(['auth', 'verified'])->name('profile');
+})->middleware(['auth', 'verified'])->name('profile.show');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/settings', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/settings', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/settings', [ProfileController::class, 'destroy'])->name('profile.destroy');
