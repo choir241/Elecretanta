@@ -11,8 +11,8 @@ export default function AuthenticatedLayout({ header, children }) {
         useState(false);
 
     return (
-        <div className="bg-[#F2E8CF] w-full min-h-screen flex flex-col items-center">
-            <nav className="w-full bg-[rgb(255,255,255,.65)] rounded-[1000px] border-b border-gray-100 dark:border-gray-700">
+        <div className="max-[320px]:absolute max-[320px]:h-[500vh] bg-[#F2E8CF] w-full min-h-screen flex flex-col items-center">
+            <nav className="max-[320px]:absolute max-[320px]:h-[500vh] w-full bg-[rgb(255,255,255,.65)] rounded-[1000px] border-b border-gray-100 dark:border-gray-700">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 justify-between">
                         <div className="flex">
@@ -35,7 +35,7 @@ export default function AuthenticatedLayout({ header, children }) {
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
                             <div className="relative ms-3">
                                 <NavLink href="/">Home</NavLink>
-                                <NavLink href="" method="post" as="button">
+                                <NavLink href="" as="button">
                                     About
                                 </NavLink>
                                 <SecondaryButton
@@ -99,19 +99,11 @@ export default function AuthenticatedLayout({ header, children }) {
                         " sm:hidden"
                     }
                 >
-                    <div className="space-y-1 pb-3 pt-2">
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
                         <div className="mt-3 space-y-1">
                                 <ResponsiveNavLink href="/">Home</ResponsiveNavLink>
-                                <ResponsiveNavLink href="" method="post" as="button">
+                                <ResponsiveNavLink href="" as="button">
                                     About
                                 </ResponsiveNavLink>
                                 <SecondaryButton

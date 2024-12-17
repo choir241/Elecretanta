@@ -17,7 +17,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
         {auth.user ? 
-        <GuestLayout
+        <AuthenticatedLayout
         header={
             <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                 Welcome
@@ -326,15 +326,15 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </div>
                 </div>
             </div>
-        </GuestLayout>
+        </AuthenticatedLayout>
             :
-        <AuthenticatedLayout
+        <GuestLayout
         header={
             <h2>Welcome</h2>
         }
         >
 
-        </AuthenticatedLayout>
+        </GuestLayout>
             }
         </>
     );
