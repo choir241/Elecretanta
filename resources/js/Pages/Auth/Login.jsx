@@ -94,6 +94,13 @@ export default function Login({ status, canResetPassword }) {
                         Log in
                     </PrimaryButton>
                 </div>
+
+                <p>
+                        Don't have an account?{" "}
+                    <Link href="register">
+                        Signup here
+                        </Link>
+                    </p>
             </form>
         </GuestLayout>
     );

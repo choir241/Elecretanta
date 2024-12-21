@@ -35,14 +35,14 @@ export default function AuthenticatedLayout({ header, children }) {
                         <div className="hidden sm:flex sm:items-center">
                             <div className="flex items-center gap-2">
                                 <NavLink className="font-extrabold font-baskerville" href="/">Home</NavLink>
-                                <NavLink className="font-extrabold font-baskerville" href="" method="post" as="button">
+                                <NavLink className="font-extrabold font-baskerville" href="">
                                     About
                                 </NavLink>
                                 <SecondaryButton
                                     className="text-xl font-bold font-baskerville"
                                     method="post"
                                     href={route("logout")}
-                                    as="button"
+                                
                                 >
                                     Log Out
                                 </SecondaryButton>
@@ -112,13 +112,12 @@ export default function AuthenticatedLayout({ header, children }) {
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href="/">Home</ResponsiveNavLink>
-                            <ResponsiveNavLink href="" method="post" as="button">
+                            <ResponsiveNavLink href="">
                                 About
                             </ResponsiveNavLink>
                             <SecondaryButton
                                 method="post"
                                 href={route("logout")}
-                                as="button"
                             >
                                 Log Out
                             </SecondaryButton>

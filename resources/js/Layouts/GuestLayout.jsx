@@ -35,14 +35,13 @@ export default function AuthenticatedLayout({ header, children }) {
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
                             <div className="relative ms-3">
                                 <NavLink href="/">Home</NavLink>
-                                <NavLink href="" method="post" as="button">
+                                <NavLink href="">
                                     About
                                 </NavLink>
-                                <SecondaryButton
-                                    href="/login"
-                                    as="button"
-                                >
+                                <SecondaryButton>
+                                    <NavLink href="/login">
                                     Login
+                                    </NavLink>
                                 </SecondaryButton>
                             </div>
                         </div>
@@ -110,14 +109,14 @@ export default function AuthenticatedLayout({ header, children }) {
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
                         <div className="mt-3 space-y-1">
                                 <ResponsiveNavLink href="/">Home</ResponsiveNavLink>
-                                <ResponsiveNavLink href="" method="post" as="button">
+                                <ResponsiveNavLink href="">
                                     About
                                 </ResponsiveNavLink>
                                 <SecondaryButton
-                                    href="/login"
-                                    as="button"
                                 >
+                                    <ResponsiveNavLink href="/login">
                                     Login
+                                    </ResponsiveNavLink>
                                 </SecondaryButton>
                         </div>
                     </div>

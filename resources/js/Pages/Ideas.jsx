@@ -1,15 +1,16 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-export default function SantaGroup({}){
-    return(
+
+export default function Ideas() {
+    return (
         <AuthenticatedLayout
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Santa Group
+                    Ideas
                 </h2>
-            }    
+            }
         >
-            <Head title="Santa Group"/>
+            <Head title="Ideas" />
         </AuthenticatedLayout>
-    )
+    );
 }
