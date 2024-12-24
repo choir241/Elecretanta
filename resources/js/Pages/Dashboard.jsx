@@ -35,9 +35,7 @@ export default function Dashboard() {
         <AuthenticatedLayout>
             <Head title="Dashboard" />
             <h1 className="sr-only">Dashboard</h1>
-            <h2 className="leading-tight text-black font-bold text-3xl md:text-5xl tracking-[-.005em] font-baskerville">
-                Hello, {user.name}
-            </h2>
+            <h2>Hello, {user.name}</h2>
             <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 justify-between pt-12 pb-16">
                 {dashboardItems.map((item) => {
                     const { image, title, link } = item;

@@ -1,6 +1,7 @@
 # Elecretanta
-- [Setup Application](#setup-application)
-- [Add page to frontend UI](#add-page-to-frontend-ui)
+
+-   [Setup Application](#setup-application)
+-   [Add page to frontend UI](#add-page-to-frontend-ui)
 
 # Setup application
 
@@ -29,18 +30,20 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ## Install PHP packages and npm dependencies
 
-1. 
+1.
+
 ```sh
 composer i
 ```
 
 2.
+
 ```sh
 npm i
 ```
 
 3. ## Update your .env
-Copy the values from .env.example and update the appropriate values
+    Copy the values from .env.example and update the appropriate values
 
 ```sh
 DB_CONNECTION=
@@ -58,11 +61,13 @@ C: > Users > yourUsernameHere > .config -> herd-lite -> bin -> php.ini, set the 
 ## Run the following commands:
 
 4. In another terminal:
+
 ```sh
 npm run dev
 ```
 
 5.
+
 ```sh
 php artisan migrate
 ```
@@ -70,6 +75,7 @@ php artisan migrate
 ## Run the app locally
 
 6.
+
 ```sh
 php artisan serve
 ```
@@ -86,7 +92,7 @@ export default function Show() {
     return (
         <AuthenticatedLayout
             header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     User
                 </h2>
             }
