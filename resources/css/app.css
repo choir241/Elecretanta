@@ -3,12 +3,78 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: "Libre Baskerville", system-ui, sans-serif;
-  }
+    * {
+        @apply text-foreground;
+    }
 
-  /* For Testing uncomment below */
-  /* body * {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold font-baskerville leading-none tracking-tighter;
+    }
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+
+    h6 {
+        @apply text-base;
+    }
+
+    /* For Testing uncomment below */
+    /* body * {
     border: 1px solid black;
   } */
+}
+
+:root {
+    --background: 43 57% 88%;
+    --foreground: 43 97% 13%;
+
+    --card: 48 92% 94%;
+    --card-foreground: 20 20% 99%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --primary: 359 47% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 132 29% 31%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 41 61% 93%;
+    --muted-foreground: 45 20% 36%;
+    --muted-border: 45 19% 62%;
+
+    --accent: 43 80% 40%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 33%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 43 80% 40%;
+    --input: 43 80% 40%;
+    --ring: 43 80% 40%;
+
+    --radius: 1000px;
 }

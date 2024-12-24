@@ -1,6 +1,6 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { usePage } from "@inertiajs/react";
 import { Head } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import gear from "../../assets/icons/gear.svg";
 import gift from "../../assets/icons/gift.svg";
 import heart from "../../assets/icons/heart.svg";
