@@ -1,12 +1,35 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
+import { useState } from "react";
 import placeholder from "../../assets/idea-placeholder-img.png";
 import { BsCart4 } from "react-icons/bs";
 
 export default function Ideas() {
     const user = usePage().props.auth.user;
+    const [visibleItems, setVisibleItems] = useState(6);
+    const handleShowMore = () => {
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 6);
+    };
     const giftIdeas = [
+        {
+            image: placeholder,
+            itemName: "Apple AirPods Max",
+            price: "12.99",
+            link: "/",
+        },
+        {
+            image: placeholder,
+            itemName: "Apple AirPods Max",
+            price: "12.99",
+            link: "/",
+        },
+        {
+            image: placeholder,
+            itemName: "Apple AirPods Max",
+            price: "12.99",
+            link: "/",
+        },
         {
             image: placeholder,
             itemName: "Apple AirPods Max",
@@ -53,7 +76,7 @@ export default function Ideas() {
                     Gifts for {user.name}
                 </h2>
                 <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-12 pb-16">
-                    {giftIdeas.map((item) => {
+                    {giftIdeas.slice(0, visibleItems).map((item) => {
                         const { image, itemName, link, price } = item;
                         return (
                             <li
@@ -91,6 +114,16 @@ export default function Ideas() {
                         );
                     })}
                 </ul>
+                {visibleItems < giftIdeas.length && (
+                    <div className="text-center pb-16">
+                        <button
+                            onClick={handleShowMore}
+                            className="font-baskerville underline underline-offset-4 decoration-solid font-bold text-xl md:text-2xl tracking-tight transition duration-200 hover:decoration-transparent"
+                        >
+                            Show More
+                        </button>
+                    </div>
+                )}
             </div>
         </AuthenticatedLayout>
     );
