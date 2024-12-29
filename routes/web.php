@@ -35,6 +35,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/ideas', function () {
+    return Inertia::render('Ideas');
+})->middleware(['auth', 'verified'])->name('ideas');
+
 Route::middleware('auth')->group(function () {
     Route::get('/santaGroup', [SantaGroupController::class, 'index'])->name('santaGroup.index');
     Route::post('/santaGroup', [SantaGroupController::class, 'store'])->name('santaGroup.store');
