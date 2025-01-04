@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'age',
+        'hobbies'
     ];
 
     /**
@@ -34,6 +36,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function hobbies()
+    {
+        return $this->belongsToMany(Hobby::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,11 +51,9 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'age'=> 'integer'
         ];
     }
 
-    public function hobbies(): HasMany
-    {
-        return $this->HasMany(Hobby::class);
-    }
+    
 }
