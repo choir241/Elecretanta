@@ -1,4 +1,4 @@
-import AuthenticatedLayout from "vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/Layouts/AuthenticatedLayout";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from "@inertiajs/react";
 export default function SantaGroup({}) {
     return (

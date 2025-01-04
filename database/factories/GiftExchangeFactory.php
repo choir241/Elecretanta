@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\GiftExchange;
+use App\Models\User;
 
 class GiftExchangeFactory
 {
