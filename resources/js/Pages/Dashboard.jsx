@@ -63,12 +63,14 @@ export default function Dashboard() {
                     );
                 })}
             </ul>
-            <PrimaryButton
-                href="/"
-                className="w-full font-baskerville justify-center py-4 text-lg md:text-2xl md:max-w-max px-10 font-bold tracking-[-0.01em] self-center capitalize"
-            >
-                Make your list
-            </PrimaryButton>
+            <div className="flex sm:justify-center">
+                <PrimaryButton
+                    href="/"
+                    className="w-full font-baskerville justify-center py-4 text-lg md:text-2xl md:max-w-max px-10 font-bold tracking-[-0.01em] self-center capitalize"
+                >
+                    Make your list
+                </PrimaryButton>
+            </div>
         </AuthenticatedLayout>
     );
 }
