@@ -4,6 +4,7 @@ import {
     Transition,
     TransitionChild,
 } from "@headlessui/react";
+import { twMerge } from "tailwind-merge";
 
 export default function Modal({
     children,
@@ -11,6 +12,7 @@ export default function Modal({
     maxWidth = "2xl",
     closeable = true,
     onClose = () => {},
+    otherClass,
 }) {
     const close = () => {
         if (closeable) {
@@ -54,7 +56,9 @@ export default function Modal({
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                     <DialogPanel
-                        className={`mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full  ${maxWidthClass}`}
+                        className={twMerge(
+                            `mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full  ${maxWidthClass} ${otherClass}`
+                        )}
                     >
                         {children}
                     </DialogPanel>

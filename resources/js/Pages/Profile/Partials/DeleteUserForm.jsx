@@ -1,3 +1,4 @@
+import PrimaryButton from "@/Components/PrimaryButton";
 import DangerButton from "@/Components/DangerButton";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
@@ -48,11 +49,9 @@ export default function DeleteUserForm({ className = "" }) {
     return (
         <section className={`space-y-6 ${className}`}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">
-                    Delete Account
-                </h2>
+                <h2 className="font-medium text-gray-900">Delete Account</h2>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 font-semibold text-gray-500">
                     Once your account is deleted, all of its resources and data
                     will be permanently deleted. Before deleting your account,
                     please download any data or information that you wish to
@@ -60,11 +59,18 @@ export default function DeleteUserForm({ className = "" }) {
                 </p>
             </header>
 
-            <DangerButton onClick={confirmUserDeletion}>
+            <PrimaryButton
+                onClick={confirmUserDeletion}
+                className="font-baskerville capitalize font-bold tracking-tight text-base justify-center w-full sm:w-max md:text-xl px-6"
+            >
                 Delete Account
-            </DangerButton>
+            </PrimaryButton>
 
-            <Modal show={confirmingUserDeletion} onClose={closeModal}>
+            <Modal
+                show={confirmingUserDeletion}
+                onClose={closeModal}
+                otherClass={"rounded-none"}
+            >
                 <form onSubmit={deleteUser} className="p-6">
                     <h2 className="text-lg font-medium text-gray-900">
                         Are you sure you want to delete your account?
@@ -93,7 +99,7 @@ export default function DeleteUserForm({ className = "" }) {
                             onChange={(e) =>
                                 setData("password", e.target.value)
                             }
-                            className="mt-1 block w-3/4"
+                            className="mt-1 block w-full"
                             isFocused
                             placeholder="Password"
                         />
@@ -104,8 +110,11 @@ export default function DeleteUserForm({ className = "" }) {
                         />
                     </div>
 
-                    <div className="mt-6 flex justify-end">
-                        <SecondaryButton onClick={closeModal}>
+                    <div className="mt-6 flex sm:justify-end">
+                        <SecondaryButton
+                            onClick={closeModal}
+                            className="sm:w-max px-4"
+                        >
                             Cancel
                         </SecondaryButton>
 
