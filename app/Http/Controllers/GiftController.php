@@ -12,9 +12,9 @@ class GiftController extends Controller
 {   
     public function index(Request $request) : Response
     {
-        $gifts = GiftExchange::where('user_id',$request->user()->id)->get();
+        $gifts = GiftExchange::where('user_id', $request->user()->id)->get();
 
-        return Inertia::render('/giftExchange', [
+        return Inertia::render('GiftExchange', [
            'gifts' => $gifts
         ]);
     }

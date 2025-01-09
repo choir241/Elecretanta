@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 export default function SecondaryButton({
     type = "button",
     className = "",
@@ -9,11 +11,11 @@ export default function SecondaryButton({
         <button
             {...props}
             type={type}
-            className={
-                `flex items-center rounded-full bg-secondary px-2 py-1 text-sm font-medium text-secondary-foreground sm:w-full ${
+            className={twMerge(
+                `flex items-center rounded bg-secondary px-2 py-1 text-sm font-medium text-secondary-foreground sm:w-full ${
                     disabled && "opacity-25"
-                } ` + className
-            }
+                } ${className}`
+            )}
             disabled={disabled}
         >
             {children}

@@ -1,0 +1,124 @@
+{
+    "giftExchanges": [
+        {
+            "id": 1,
+            "name": "Family Christmas",
+            "totalBudget": 500,
+            "remainingBudget": 500,
+            "gifts": [
+                {
+                    "id": 1,
+                    "recipient": "definitely not richard choi",
+                    "item": "Crunchyroll Membership",
+                    "price": 12.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 2,
+                    "recipient": "sarah johnson",
+                    "item": "Nintendo Switch Pro Controller",
+                    "price": 69.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 3,
+                    "recipient": "mike wilson",
+                    "item": "Spotify Premium (1 Year)",
+                    "price": 99.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 4,
+                    "recipient": "emma davis",
+                    "item": "Amazon Kindle Paperwhite",
+                    "price": 139.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Office Party",
+            "totalBudget": 0,
+            "remainingBudget": 0,
+            "gifts": [
+                {
+                    "id": 5,
+                    "recipient": "james smith",
+                    "item": "Coffee Gift Set",
+                    "price": 35.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 6,
+                    "recipient": "lisa brown",
+                    "item": "Desk Plant",
+                    "price": 24.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 7,
+                    "recipient": "david miller",
+                    "item": "Wireless Mouse",
+                    "price": 45.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Friend Group",
+            "totalBudget": 300,
+            "remainingBudget": 300,
+            "gifts": [
+                {
+                    "id": 8,
+                    "recipient": "sophia garcia",
+                    "item": "Art Tablet",
+                    "price": 79.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 9,
+                    "recipient": "alex turner",
+                    "item": "Board Game Collection",
+                    "price": 89.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 10,
+                    "recipient": "olivia martinez",
+                    "item": "Yoga Mat Set",
+                    "price": 49.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 11,
+                    "recipient": "ethan wright",
+                    "item": "Smart Watch",
+                    "price": 199.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                },
+                {
+                    "id": 12,
+                    "recipient": "isabella lee",
+                    "item": "Bluetooth Speaker",
+                    "price": 69.99,
+                    "image": "/assets/Santa.jpg",
+                    "status": "pending"
+                }
+            ]
+        }
+    ]
+}

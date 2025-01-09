@@ -13,7 +13,7 @@ export default function PrimaryButton({
             {...props}
             href={href}
             className={twMerge(
-                `inline-flex items-center rounded-full border border-transparent bg-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground transition duration-150 ease-in-out hover:opacity-85 ${
+                `inline-flex items-center rounded border border-transparent bg-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground transition duration-150 ease-in-out hover:opacity-85 ${
                     disabled && "opacity-25"
                 } ${className}`
             )}
