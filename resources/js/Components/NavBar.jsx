@@ -13,9 +13,7 @@ export default function NavBar() {
             <p className="text-5xl">
                 <Link href="/">🎄</Link>
             </p>
-            <h1>Secret Santa</h1>
-
-            {/* Desktop Navigation */}
+            <h1 className="text-center sm:text-left ml-4 sm:ml-30 pl-2 sm:pl-20">Secret Santa</h1>
             <div className="hidden sm:flex gap-4 items-center">
                 <Link href="/">Home</Link>
 
@@ -86,11 +84,10 @@ export default function NavBar() {
 
             {/* Mobile Navigation Menu */}
             <div
-                className={`fixed top-0 right-0 bottom-0 w-64 bg-muted shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
-                    showingNavigationDropdown
-                        ? "translate-x-0"
-                        : "translate-x-full"
-                } sm:hidden`}
+                className={`fixed top-0 right-0 bottom-0 w-64 bg-muted shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${showingNavigationDropdown
+                    ? "translate-x-0"
+                    : "translate-x-full"
+                    } sm:hidden`}
             >
                 <div className="px-4 py-6">
                     {/* Close Button */}
