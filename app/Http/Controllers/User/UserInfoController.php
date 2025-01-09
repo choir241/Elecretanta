@@ -27,6 +27,7 @@ class UserInfoController extends Controller
             
           
             $user = User::findOrFail($request -> user_id);
+            echo "USER:", $user;
             $hobby = Hobby::findOrFail($request -> hobby_name);
             
 
