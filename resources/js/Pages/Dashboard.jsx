@@ -18,7 +18,7 @@ export default function Dashboard() {
         {
             image: heart,
             title: "hobbies",
-            link: "/hobbies",
+            link: "/hobby",
         },
         {
             image: lightbulb,
