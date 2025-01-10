@@ -36,11 +36,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function hobbies()
+    public function hobbies(): HasMany
     {
-        return $this->belongsToMany(Hobby::class);
+        return $this->HasMany(Hobby::class);
     }
-
     /**
      * Get the attributes that should be cast.
      *

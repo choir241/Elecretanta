@@ -237,22 +237,23 @@ class WebscrapperController extends Controller
     
 
     public function generateGiftIdeas(Request $request){
-        $userId = $request->user_id;
         
-        $foundUser = User::find($userId);
+        
+        
 
         try {
-            
+            $hobbiesArray = $request->input('hobbies', []);
+            $hobbies = implode(', ', $hobbiesArray);
             $allFoundGifts = new ArrayObject();
             // Get Gift Ideas from LLM Model
-            $queryGeminiLLM = function () {
+            $queryGeminiLLM = function () use ($hobbies) {
 
                 for($x = 0; $x <= 5; $x++){
-                  
+                    
                     $response = Prism::text()
                     ->using(Provider::Gemini, "gemini-1.5-flash")
                     ->withPrompt(
-                       "I am looking to gift an age appropriate gift for a 20 year old with a budget less than $150, and the person has the following interests: videogames, cleaning, music, drinking wine. Please provide only a valid JSON array without any additional text or wrapping elements like code block markers or comments. Must contain 3 unique gift ideas. The JSON should only include the data in array form with objects containing the keys `item`, and url, an image url of what these gift ideas look like. LINK MUST CONTAIN AT LEAST PART OF THE ITEM NAME TO ENSURE ITS A VALID LINK. The gifts must be from either, walmart.com, Amazon, or Target. Also include a field that is just the store name with the key store. Do not add anything else.\n\nFor example:\n\n[\n    {\n        \"item\": \"Gift card for streaming service (Netflix etc.)\",\n        \"reason\": \"Appeals to their interest in TV shows and Netflix, and is easily adjustable to their budget.\"\n    },\n    {\n        \"item\": \"Sports-themed socks or small accessory\",\n        \"reason\": \"Relatively inexpensive and caters to their interest in sports.\"\n    }\n]"
+                       "I am looking to gift an age appropriate gift for a 20 year old with a budget less than $150, and the person has the following interests: $hobbies Please provide only a valid JSON array without any additional text or wrapping elements like code block markers or comments. Must contain 3 unique gift ideas. The JSON should only include the data in array form with objects containing the keys `item`, and url, an image url of what these gift ideas look like. LINK MUST CONTAIN AT LEAST PART OF THE ITEM NAME TO ENSURE ITS A VALID LINK. The gifts must be from either, walmart.com, Amazon, or Target. Also include a field that is just the store name with the key store. Do not add anything else.\n\nFor example:\n\n[\n    {\n        \"item\": \"Gift card for streaming service (Netflix etc.)\",\n        \"reason\": \"Appeals to their interest in TV shows and Netflix, and is easily adjustable to their budget.\"\n    },\n    {\n        \"item\": \"Sports-themed socks or small accessory\",\n        \"reason\": \"Relatively inexpensive and caters to their interest in sports.\"\n    }\n]"
                     )->generate();
 
                     $responseText = $response->text;

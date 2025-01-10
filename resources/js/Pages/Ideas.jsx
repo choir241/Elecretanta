@@ -4,10 +4,12 @@ import { usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 
-export default function Ideas() {
+export default function Ideas(props) {
     const user = usePage().props.auth.user;
     const [giftIdeas, setGiftIdeas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const hobbies = props["hobbies"]
+    console.log("HOBBIES", hobbies);
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
@@ -16,7 +18,7 @@ export default function Ideas() {
                     {    method: 'POST',
                         headers: {
                         'Content-Type': 'application/json'
-                },       body: JSON.stringify({user_id: user.id })// Specify the content type
+                },       body: JSON.stringify({hobbies})// Specify the content type
             })
                 const jsonData = await response.json();
                 if (jsonData && typeof jsonData === "object") {
