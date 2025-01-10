@@ -9,11 +9,10 @@ import target from "../../assets/target.png";
 import placeholder from "../../assets/placeholder.jpg";
 
 export default function Ideas(props) {
-    const hobbies = props["hobbies"];
-    console.log(hobbies);
     const user = usePage().props.auth.user;
     const [giftIdeas, setGiftIdeas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const hobbies = props["hobbies"];
 
     const storeImages = { walmart, amazon, target, default: placeholder };
 
@@ -22,17 +21,21 @@ export default function Ideas(props) {
     }, []);
 
     const fetchGiftIdeas = async () => {
-        setIsLoading(true);
         try {
-            const response = await fetch("/api/generateGiftIdeas");
+            const response = await fetch("/api/generateGiftIdeas", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ hobbies }),
+            });
             const data = await response.json();
 
             if (!response.ok) {
                 throw new Error(data.message || "Failed to fetch gift ideas");
             }
+
             setGiftIdeas(Object.values(data.data));
         } catch (error) {
-            console.error("Error fetching data:", error);
+            console.error("Error fetching gift ideas:", error);
             setGiftIdeas([]);
         } finally {
             setIsLoading(false);

@@ -7,5 +7,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/webscrapper", [WebscrapperController::class, "scrape"] ) ->name("webscrapper");
 
-Route::get("/generateGiftIdeas", [WebscrapperController::class, "generateGiftIdeas"] ) -> name("generateGiftIdeas");
+Route::post("/generateGiftIdeas", [WebscrapperController::class, "generateGiftIdeas"] ) -> name("generateGiftIdeas");
 Route::get("/generateGiftIdeasByImage", [WebscrapperController::class, "generateGiftIdeasByImage"] ) -> name("generateGiftIdeasByImage");
