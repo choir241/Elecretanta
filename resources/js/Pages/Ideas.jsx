@@ -15,44 +15,41 @@ export default function Ideas(props) {
     const hobbies = props["hobbies"];
     console.log("HOBBIES", hobbies);
 
-    const storeImages = {
-        walmart: walmart,
-        amazon: amazon,
-        target: target,
-        default: placeholder,
-    };
+    const storeImages = { walmart, amazon, target, default: placeholder };
 
     useEffect(() => {
-        const fetchData = async () => {
-            setIsLoading(true);
-            try {
-                const response = await fetch("/api/generateGiftIdeas", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ hobbies }),
-                });
-                const jsonData = await response.json();
-                console.log(jsonData);
-                if (jsonData && typeof jsonData === "object") {
-                    const giftIdeasArray = Object.values(jsonData.data);
-                    setGiftIdeas(giftIdeasArray);
-                } else {
-                    console.error("Unexpected data structure");
-                    setGiftIdeas([]);
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setGiftIdeas([]);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchData();
+        fetchGiftIdeas();
     }, []);
 
-    console.log(giftIdeas);
+    const fetchGiftIdeas = async () => {
+        try {
+            const response = await fetch("/api/generateGiftIdeas", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ hobbies }),
+            });
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Failed to fetch gift ideas");
+            }
+
+            setGiftIdeas(Object.values(data.data));
+        } catch (error) {
+            console.error("Error fetching gift ideas:", error);
+            setGiftIdeas([]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const getImageUrl = (item) => {
+        if (item.store) {
+            const storeName = item.store.toLowerCase();
+            return storeImages[storeName] || storeImages.default;
+        }
+        return item.imageUrl || item.image || storeImages.default;
+    };
 
     return (
         <AuthenticatedLayout>
@@ -67,25 +64,14 @@ export default function Ideas(props) {
                     </h2>
                 ) : (
                     <ul className="grid grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] gap-4 md:gap-6 pt-12 pb-16">
-                        {giftIdeas.map((item, index) => {
-                            let imageUrl = item.imageUrl || item.image;
-
-                            if (item.hasOwnProperty("store")) {
-                                const storeName = item.store.toLowerCase();
-                                imageUrl =
-                                    storeImages[storeName] ||
-                                    storeImages.default;
-                            }
-
-                            return (
-                                <GiftSuggestionCard
-                                    key={index}
-                                    itemName={item.itemName || item.item}
-                                    imageUrl={imageUrl}
-                                    linkToItem={item.link || item.searchUrl}
-                                />
-                            );
-                        })}
+                        {giftIdeas.map((item, index) => (
+                            <GiftSuggestionCard
+                                key={index}
+                                itemName={item.itemName || item.item}
+                                imageUrl={getImageUrl(item)}
+                                linkToItem={item.link || item.searchUrl}
+                            />
+                        ))}
                     </ul>
                 )}
             </div>
