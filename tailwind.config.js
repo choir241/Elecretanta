@@ -54,6 +54,29 @@ export default {
                 sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
                 baskerville: ["Libre Baskerville", "serif"],
             },
+            animation: {
+                dots: "dots 2s steps(3, end) infinite",
+            },
+            keyframes: {
+                dots: {
+                    "0%, 20%": {
+                        color: "rgba(0,0,0,0)",
+                        textShadow:
+                            "0.25em 0 0 rgba(0,0,0,0), 0.5em 0 0 rgba(0,0,0,0)",
+                    },
+                    "40%": {
+                        color: "black",
+                        textShadow:
+                            "0.25em 0 0 rgba(0,0,0,0), 0.5em 0 0 rgba(0,0,0,0)",
+                    },
+                    "60%": {
+                        textShadow: "0.25em 0 0 black, 0.5em 0 0 rgba(0,0,0,0)",
+                    },
+                    "80%, 100%": {
+                        textShadow: "0.25em 0 0 black, 0.5em 0 0 black",
+                    },
+                },
+            },
         },
     },
 
