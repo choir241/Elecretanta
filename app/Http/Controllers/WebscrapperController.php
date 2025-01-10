@@ -283,10 +283,11 @@ class WebscrapperController extends Controller
 
  
         
-        if($geminiGiftSuggestions == null){
+        if($geminiGiftSuggestions == null) {
             // Here we will get hobbies from the user and iterate over each one to generate less specific gift ideas
-            $userHobbies = ["basketball", "pingpong, trivia"];
-            foreach($userHobbies as $hobby){
+            
+           
+            foreach($hobbiesArray as $hobby){
                 
                 $result = $this->scrape($hobby);
                 $content = $result->getContent();
@@ -341,6 +342,7 @@ class WebscrapperController extends Controller
     public function generateGiftIdeasByImage(Request $request) {
         // Image url must end in a .svg or .jpg to work
         $imageUrl = $request -> imageUrl;
+ 
         $userHobbies = ["basketball"];
         // $userHobbies = auth()->user()->hobbies();
         $allFoundGifts = new ArrayObject();
